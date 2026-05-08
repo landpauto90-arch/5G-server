@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your 5G Server on Termux</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Build Your “5G Server” on Termux (Phone-Based)</h1>
+    <p>Turn your Android phone into a portable server using Termux + 5G.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>What this can do:</h2>
+      <ul>
+        <li>Host websites</li>
+        <li>IPTV panel</li>
+        <li>AI chatbot</li>
+        <li>File server</li>
+        <li>Remote dashboard</li>
+        <li>Automation bots</li>
+        <li>Personal cloud</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Step 1: Install Essentials</h2>
+      <pre><code>pkg update && pkg upgrade
+pkg install nodejs git nginx python openssh</code></pre>
+    </section>
+
+    <section class="card">
+      <h2>Step 2: Create Node.js Server</h2>
+      <pre><code>mkdir myserver
+cd myserver
+npm init -y
+npm install express</code></pre>
+      <button onclick="toggleCode()">Show/Hide Server Code</button>
+      <pre id="serverCode"><code>
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("My Android 5G Server is Live!");
+});
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
+      </code></pre>
+    </section>
+
+    <section class="card">
+      <h2>Step 3: Run Server</h2>
+      <pre><code>node server.js</code></pre>
+    </section>
+
+    <section class="card">
+      <h2>Step 4: Make It Public</h2>
+      <pre><code>cloudflared tunnel --url http://localhost:3000</code></pre>
+    </section>
+
+    <section class="card">
+      <h2>Reality Check</h2>
+      <ul>
+        <li>Battery drain</li>
+        <li>Heat</li>
+        <li>Carrier NAT</li>
+        <li>Data caps</li>
+        <li>Android process limits</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for GitHub Pages | Edit anytime on GitHub</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
